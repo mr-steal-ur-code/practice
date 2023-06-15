@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -29,10 +34,10 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 249, 1, 154)),
+            seedColor: const Color.fromARGB(255, 0, 255, 26)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Fluttering with Flutter'),
     );
   }
 }
@@ -90,6 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
+
         child: Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
@@ -108,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text(
               style: TextStyle(),
-              'You have pushed the button this many times:',
+              'Pushing buttons since Nam:',
             ),
             Text(
               '$_counter',
@@ -121,7 +127,8 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
